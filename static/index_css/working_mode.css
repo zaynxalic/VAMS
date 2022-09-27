@@ -1,0 +1,295 @@
+html{ 
+    margin: 0;
+    padding: 0;
+    height:100%;
+    
+}
+
+body{ 
+    margin:0; 
+    height:100%;
+    overflow: hidden;
+} 
+
+
+.text{
+    margin-top: 0em;
+    font-size: 1.2em;
+    color: antiquewhite;
+}
+
+.title{
+    font-size: 1.8em;
+    color: white;
+    position: absolute;
+    left:40%;
+    top:0.5em;
+}
+
+.num{
+    font-size: 1em;
+}
+
+/* 设置图形界面大小220*225 */
+#wearing_hat, #linger, #intruder{
+    width: 14.063em;
+    height: 12.8em;
+}
+
+
+#main{
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+#show_time{
+    color:white;
+}
+
+.introduction{
+    width: 100%;
+    height: 8%;
+    position: relative;
+}
+
+#title_background{
+    height: 6.25em;
+    width: 100%;
+    position: absolute;
+    top:0%;
+}
+
+/* 上面的introduction的左图 */
+#left_img{
+    float: left;
+    width: 18.75em;
+    position: absolute;
+    top:2.5em;
+    left:2.1875em;
+}
+
+/* 上面的introduction的右图 */
+#right_img{
+    float: right;
+    width: 300px;
+    position: absolute;
+    top:2.4em;
+    right:2.8em;
+}
+
+#right_img img{
+    width: 16.875em;
+}
+#show_time{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+}
+
+.left_section{
+    position: absolute;
+    top:12%;
+    float: left;
+    left:0.625em;
+    width: 20em;
+    height: 48em;
+}
+
+#pic_frame{
+    width: 17em;
+    height: 49em;
+    margin: 1em;
+}
+
+#pic_frame_2{
+    position: absolute;
+    left: 2%;
+    width: 25.5em;
+    height: 49em;
+}
+
+.block_1{
+    position: absolute;
+    width: 16.8em;
+    left:8%;
+    top:4%;
+    padding: 3%;
+}
+
+.block_2{
+    text-align: center;
+    position: absolute;
+    left:3%;
+    top:3%;
+}
+
+#map{
+    float: left;
+    width: 100%;
+    margin-top: 0.625em;
+    height: 100%;
+    position: relative;
+}
+
+.right_section{
+    position: absolute;
+    top:12%;
+    right: 2.5em;
+    float: right;
+    height: 92%;
+    width: 25.5em;
+}
+
+/* 使得两个div并排显示 */
+
+
+.camera_flex{
+    padding: 1em;
+    display: flex;
+    height: 8.125em;
+    flex-wrap: wrap;
+    align-content: space-between;
+    /* 如果有很多摄像头的话,就滚动 */
+    overflow-y: scroll;
+  /* 使图片居中 */
+}
+
+.camera_flex > div{
+    margin: 0.5em;
+}
+
+.area{
+    flex: 4;
+    text-align: left;
+}
+
+.date{
+    flex: 6;
+    text-align: center;
+}
+
+.event{
+    flex: 3;
+    text-align: right;
+}
+
+/* flex: flex-grow,flex-shrink, flex-basis */
+
+#alert_video{
+    position: relative;
+    margin: 0;
+    height: 18em;
+    width: 25em;
+}
+
+video{
+    width: 100%;
+    height: 100%;
+    object-fit:fill;
+}
+
+.piclass{
+    position: absolute;
+    top:0.625em;
+    height: 100%;
+    right: 0.9375em;
+}
+
+marquee div{
+    color:white;
+    font-size: 1em;
+}
+
+.bs_frame{
+    position: absolute;
+    bottom:11%;
+}
+/* 使用flex box制作底下的可视化界面 */
+.bs_img{
+    display: flex;
+    align-content: space-between;
+    justify-content: space-around;
+}
+
+.bottomSection{
+    position: absolute;
+    top:88%;
+    left:30%;
+}
+
+.nav{   
+    display: flex;
+    width :12.5em;
+    align-items: center;
+    align-content: space-between;
+    justify-content: space-around;
+}
+
+.nav .whole_img{
+    position: absolute;
+    top:13%;
+    left:25%;
+}
+
+/* 弹出窗 */
+.popup {
+    position: absolute;
+    z-index: 200;
+    top:25%;
+    left:35%;
+}
+
+/* #bgCvs,#lbCvs{
+    width: 100%;
+    height: 100%;
+} */
+
+#cam{
+    color: white;
+}
+
+#background_animation{
+    position:absolute;
+    top: -132%;
+    left: 35%;
+    z-index: 0;
+    clip:rect(5.625em,43.75em,11.25em, 0em); 
+    /* height: 150px; */
+    width: 31.25em; 
+}
+
+#alertIframe{
+    display:block;
+    width:100%;
+    height: 100%;
+}
+
+#navigation{
+    height: 50px;
+    /* background-color: aqua; */
+    position: absolute;
+    left: 30%;
+    width:40%;
+    left: 30%;
+}
+
+#fbox-container{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    padding: 0.1875em;
+    position: relative;
+}
+
+#fbox-container a{
+    color: aliceblue;
+    font-size: 1em;
+}
+
+
+#navigation div img{
+    position: absolute;
+    top:0.5em;
+    width: 100%;
+}

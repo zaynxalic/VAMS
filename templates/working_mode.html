@@ -1,0 +1,133 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width initial-scale=1.0 maximum-scale=1.0 user-scalable=0">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>主页</title>
+    
+    <!-- 引入 echarts.js -->
+    <script src="{% static 'internal_lib/echarts.min.js' %}"></script>
+    <script src="{% static 'internal_lib/echarts.common.min.js' %}"></script>
+    <script src="{% static 'internal_lib/echarts.js' %}" type="text/javascript" charset="utf-8"></script>
+    <script src="{% static 'internal_lib/echarts-gl.min.js' %}"></script>
+
+    <!-- 导入 css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'index_css/working_mode.css' %}">
+    
+    <!-- 导入 时间.js -->
+    <script src="{% static 'index_js/time.js' %}"></script>
+
+    <!-- 导入jquery.js -->
+    <script src = "{% static 'internal_lib/jquery.js' %}"></script>
+    <script src="{% static '/index_js/bgcanvas.js' %}"></script>
+    <!-- 预加载监控视频 -->
+    <link rel="preload" href="http://172.16.138.39:8080" as="document" type="video/mp4">
+    <!-- 隐藏视频 -->
+    <script type="text/javascript">function c(){document.getElementById('video').style.display = "none"}</script>
+
+    
+</head>
+<body>
+    <script type="text/javascript" src="{% static 'index_js/selfAdaption.js'%}"></script>
+    <div id="main"> 
+        <!-- 画布 -->
+        <!-- 背景层 -->
+        <canvas id = "bgCvs" style="position: absolute; left: 0; top: 0; z-index: 0;"></canvas>
+        <!-- 标记层 -->
+        <canvas id = "lbCvs" style="position: absolute; left: 0; top: 0; z-index: 1;"></canvas>
+
+        <div class="introduction" style = 'z-index:2'> 
+            <!-- 宽度覆盖整个页面 -->
+            
+            <img id = "background_animation"  src="{% static 'img/index_img/animation_0.gif' %}">
+            <img id="title_background" src="{% static 'img/index_img/u1.png' %}"><span class = "title">智慧机场可视化运营平台</span>
+            <div id="right_img">
+                <img src="{% static 'img/index_img/u30.png' %}"><span class="zhihui" id="show_time"></span>
+            </div>  
+            
+
+            <div id = "navigation" style="display: none;" >
+                
+                <div id = "fbox-container">
+                    <a href = "http://172.16.138.39/admin/" style = "z-index:3"><div id = 'login'>登陆</div></a>
+                    <a href = "http://172.16.138.39/admin/" style =  "z-index:3"><div>应急演练</div></a>
+                    <a href = "http://172.16.138.39/admin/" style =  "z-index:3"><div>安全筛查</div></a>
+                    <a href = "http://172.16.138.39/admin/" style =  "z-index:3"><div>夜间执勤</div></a>
+                </div>
+
+                <div><img src="{% static 'img/index_img/navigation.png'%}"></div>
+            </div>
+
+            <script type="text/javascript" src="{% static 'index_js/navigation.js' %}"></script>
+
+        </div>
+
+        <!-- 弹出一个窗口 -->
+        <div id='video' class='popup' style="display:none;"></div>
+
+        <!-- 左视图 -->
+        <div class="left_section" >
+            <img src="{% static 'img/index_img/u22.png' %}" id="pic_frame">
+
+            <div class="block_1" style="z-index: 3;">
+                <p class="text"><b>安全帽未佩戴事件区域统计:</b></p>
+
+                <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+                <div id="wearing_hat"></div>
+                <script type="text/javascript" src="{% static 'index_js/hat_piechart.js' %}"></script>
+
+                <p class="text"><b>人员逗留事件区域分析统计:</b></p>
+
+                <div id="linger"></div>
+                <script type="text/javascript" src="{% static 'index_js/linger_piechart.js' %}"></script>
+
+                <p class="text"><b>人员越界事件区域分析统计:</b></p>
+                <div id="intruder"></div>
+                <script type="text/javascript" src="{% static 'index_js/intruder_piechart.js' %}"></script>
+
+            </div>
+        </div>
+
+        <div class="right_section" style="z-index: 3;">
+            <img src="{% static 'img/index_img/u22.png' %}" id="pic_frame_2">
+
+            <div class="block_2">
+                <p class="text"><b>人员实时报警画面</b></p>
+                <div id="alert" >
+                    <div id="alert_video"></div>
+                    
+                    <!-- 导入控制事件的js-->
+                    <script src = "{% static 'index_js/event.js' %}" type="text/javascript"></script>
+                    
+                    <!-- 滚动图像 -->
+                    <marquee id="a1" height="200" direction="up" loop="-1" onMouseOver="this.stop()"
+                        onMouseOut="this.start()" scrollamount="2" scrolldelay="150" behavior="scroll">
+                        <div id= "marq"></div>
+                    </marquee>
+
+                    <script src="{% static 'index_js/marqueeAdaption.js'%}"></script>
+                </div>
+
+                <div class="monitor_section">
+                    <p class="text"><b>机场东区视频监控</b></p>
+                    <div class="camera_flex"></div>
+                </div>
+
+            </div>
+        </div>
+
+    <!-- 设置下方可视化界面 -->
+        
+    </div>
+
+    
+    <div class = "nav">
+        <div class = "whole_img" style="z-index: 3;"></div>
+    </div>
+
+
+</body>
+
+</html>
